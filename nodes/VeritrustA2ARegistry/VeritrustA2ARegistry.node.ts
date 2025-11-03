@@ -1,5 +1,6 @@
-import { IExecuteFunctions } from 'n8n-core';
-import { INodeType, INodeTypeDescription, NodeApiError } from 'n8n-workflow';
+
+import type { NodeExecuteFunctions } from 'n8n-core';
+import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
 
 export class VeritrustA2ARegistry implements INodeType {
   description: INodeTypeDescription = {
@@ -101,7 +102,7 @@ export class VeritrustA2ARegistry implements INodeType {
     ],
   };
 
-  async execute(this: IExecuteFunctions) {
+  async execute(this: any) {
     const items = this.getInputData();
     const out: any[] = [];
 
@@ -120,18 +121,14 @@ export class VeritrustA2ARegistry implements INodeType {
     }
 
     const http = async (opt: { url: string; method?: 'GET'|'POST'; qs?: any; body?: any; }) => {
-      try {
-        return await this.helpers.httpRequest({
-          url: opt.url,
-          method: opt.method || 'GET',
-          headers,
-          qs: opt.qs,
-          body: opt.body,
-          json: true,
-        });
-      } catch (e) {
-        throw new NodeApiError(this.getNode(), e);
-      }
+      return await this.helpers.httpRequest({
+        url: opt.url,
+        method: opt.method || 'GET',
+        headers,
+        qs: opt.qs,
+        body: opt.body,
+        json: true,
+      });
     };
 
     const op = this.getNodeParameter('operation', 0) as string;

@@ -1,3 +1,4 @@
+
 # n8n-nodes-veritrust-a2a-registry
 
 Community node for the **Veritrust A2A Agent Registry**.

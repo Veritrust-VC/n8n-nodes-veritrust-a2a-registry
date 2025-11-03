@@ -1,3 +1,4 @@
+
 import { ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class VeritrustA2AApi implements ICredentialType {
