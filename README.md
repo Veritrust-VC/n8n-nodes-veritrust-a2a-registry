@@ -1,0 +1,1 @@
+# n8n-nodes-veritrust-a2a-registry
