@@ -1,0 +1,39 @@
+{
+  "name": "n8n-nodes-veritrust-a2a-registry",
+  "version": "1.0.0",
+  "description": "n8n community node for the Veritrust A2A Agent Registry (list/search/register/reverify).",
+  "author": "Veritrust",
+  "license": "MIT",
+  "keywords": ["n8n-community-node", "a2a", "registry", "agents", "veritrust"],
+  "repository": { "type": "git", "url": "https://github.com/Veritrust-VC/n8n-nodes-veritrust-a2a-registry.git" },
+  "homepage": "https://veritrust.vc/",
+  "main": "dist/nodes/VeritrustA2ARegistry/VeritrustA2ARegistry.node.js",
+  "types": "dist/nodes/VeritrustA2ARegistry/VeritrustA2ARegistry.node.d.ts",
+  "scripts": {
+    "build": "tsc && node ./copy-assets.js",
+    "prepare": "npm run build",
+    "lint": "echo \"(optional) add eslint\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-core": ">=1.0.0",
+    "n8n-workflow": ">=1.0.0"
+  },
+  "n8n": {
+    "nodes": [
+      "dist/nodes/VeritrustA2ARegistry/VeritrustA2ARegistry.node.js"
+    ],
+    "credentials": [
+      "dist/credentials/VeritrustA2AApi.credentials.js"
+    ]
+  },
+  "files": [
+    "dist/**",
+    "icons/**",
+    "README.md",
+    "LICENSE"
+  ]
+}
